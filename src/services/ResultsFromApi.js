@@ -11,6 +11,7 @@ const ResultsFromApi = () => {
           name: character.name,
           species: character.species,
           photo: character.image,
+          id: character.id,
         };
       });
     });
