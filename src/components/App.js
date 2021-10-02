@@ -1,9 +1,11 @@
 import "../styles/App.scss";
 import { useState, useEffect } from "react";
 import ResultsFromApi from "../services/ResultsFromApi";
-//constantes de estado
+import Filter from "./Filter";
+import CharacterList from "./CharacterList";
 
 function App() {
+  //constantes de estado
   const [characters, setCharacters] = useState([]);
   const [searchCharacter, setSearchCharacter] = useState("");
 
@@ -22,32 +24,15 @@ function App() {
   return (
     <div className="App">
       <form>
-        <input
-          type="text"
-          name="name"
-          onChange={handleSearchBoxChange}
-          value={searchCharacter}
+        <Filter
+          handleSearchBoxChange={handleSearchBoxChange}
+          searchCharacter={searchCharacter}
         />
       </form>
-      <ul>
-        {/*Aquí filtro cada character*/}
-        {characters
-          .filter((character) => {
-            /*filtro me retorna el nombre del caracter introducido en la caja de texto */
-            return character.name
-              .toLowerCase()
-              .includes(searchCharacter.toLowerCase());
-          })
-          .map((character) => {
-            return (
-              <li key={character.id}>
-                <img src={character.photo} alt={character.name} />
-                <h4>{character.name}</h4>
-                <p>{character.species}</p>
-              </li>
-            );
-          })}
-      </ul>
+      <CharacterList
+        characters={characters}
+        searchCharacter={searchCharacter}
+      />
     </div>
   );
 }
