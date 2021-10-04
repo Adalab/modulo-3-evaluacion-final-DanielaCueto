@@ -1,0 +1,12 @@
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  &_img {
+    width: 70%;
+    width: 100%;
+    max-width: 550px;
+    max-height: 150px;
+  }
+}

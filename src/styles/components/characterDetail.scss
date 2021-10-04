@@ -1,0 +1,28 @@
+.selected {
+  position: relative;
+  text-align: left;
+  display: flex;
+  margin-top: 20px;
+  padding: 10px 10px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(59, 213, 162);
+  &_back {
+    color: azure;
+    position: absolute;
+    top: -20px;
+    right: 0;
+  }
+  &_title {
+    padding-left: 10px;
+  }
+  &_list {
+    list-style: none;
+    padding-left: 10px;
+  }
+  &_img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}

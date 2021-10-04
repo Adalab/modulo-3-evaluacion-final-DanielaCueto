@@ -1,20 +1,27 @@
 import CharacterCard from "./CharacterCard";
-import CharacterDetail from "./CharacterDetail";
+//import CharacterDetail from "./CharacterDetail";
 
 const CharacterList = (props) => {
+  /*Aquí filtro cada character*/
+  //Filter me retorna un nuevo array con aquellos elementos cuyo nombre coincida con el texto de la búsqueda
+  const filterCharacters = props.characters.filter((character) => {
+    return character.name
+      .toLowerCase()
+      .includes(props.searchCharacter.toLowerCase());
+  });
+  if (filterCharacters.length === 0) {
+    return (
+      <p className="list_empty">
+        No hay ningún personaje que coincida con la palabra{" "}
+        {props.searchCharacter}
+      </p>
+    );
+  }
   return (
     <ul className="list">
-      {/*Aquí filtro cada character*/}
-      {props.characters
-        .filter((character) => {
-          /*filtro me retorna el nombre del caracter introducido en la caja de texto */
-          return character.name
-            .toLowerCase()
-            .includes(props.searchCharacter.toLowerCase());
-        })
-        .map((character) => {
-          return <CharacterCard character={character} />;
-        })}
+      {filterCharacters.map((character) => {
+        return <CharacterCard key={character.id} character={character} />;
+      })}
     </ul>
   );
 };

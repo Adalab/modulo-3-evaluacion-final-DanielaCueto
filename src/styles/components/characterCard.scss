@@ -1,4 +1,15 @@
 .list_card {
   box-sizing: border-box;
   margin: 10px;
+  padding: 5px;
+  border: 2px solid aquamarine;
+  text-decoration: none;
+  &_title {
+    text-decoration: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: aquamarine;
 }
