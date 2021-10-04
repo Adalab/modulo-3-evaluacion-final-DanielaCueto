@@ -12,6 +12,9 @@ const ResultsFromApi = () => {
           species: character.species,
           photo: character.image,
           id: character.id,
+          status: character.status,
+          origin: character.origin.name,
+          episodes: character.episode,
         };
       });
     });

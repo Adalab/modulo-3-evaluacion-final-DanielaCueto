@@ -1,8 +1,9 @@
 import CharacterCard from "./CharacterCard";
+import CharacterDetail from "./CharacterDetail";
 
 const CharacterList = (props) => {
   return (
-    <ul>
+    <ul className="list">
       {/*Aquí filtro cada character*/}
       {props.characters
         .filter((character) => {
