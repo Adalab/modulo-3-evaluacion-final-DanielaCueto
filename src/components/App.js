@@ -11,6 +11,8 @@ function App() {
   //constantes de estado
   const [characters, setCharacters] = useState([]);
   const [searchCharacter, setSearchCharacter] = useState("");
+  const [searchSpecie, setSearchSpecie] = useState("All");
+  console.log(searchSpecie);
   //Función que recibe parametro id y devuelve un character que coincida con ese id.
   const getCharacter = (id) => {
     id = parseInt(id);
@@ -24,7 +26,6 @@ function App() {
   //Aquí se saca la variable para una variable de JS
   const routeData = useRouteMatch("/character/:characterId");
   const characterId = routeData !== null ? routeData.params.characterId : "";
-  console.log(characterId);
 
   // uso id para obtener el objecto character
   const handleSearchBoxChange = (ev) => {
@@ -33,9 +34,12 @@ function App() {
     setSearchCharacter(inputValue);
   };
 
+  const handleSelectedSpecie = (ev) => {
+    setSearchSpecie(ev.target.value);
+  };
+
   useEffect(() => {
     ResultsFromApi().then((characters) => {
-      //console.log(characters);
       setCharacters(characters);
     });
   }, []);
@@ -55,11 +59,17 @@ function App() {
               handleSearchBoxChange={handleSearchBoxChange}
               searchCharacter={searchCharacter}
             />
+            <select onChange={handleSelectedSpecie} value={searchSpecie}>
+              <option value="All">All</option>
+              <option value="Human">Human</option>
+              <option value="Alien">Alien</option>
+            </select>
           </form>
 
           <CharacterList
             characters={characters}
             searchCharacter={searchCharacter}
+            searchSpecie={searchSpecie}
           />
         </Route>
         <Route path="/character/:characterId">

@@ -18,15 +18,21 @@ const CharacterList = (props) => {
       </p>
     );
   }
+
+  const bySpecie = filterCharacters.filter((character) => {
+    return (
+      props.searchSpecie === "All" || character.species === props.searchSpecie
+    );
+  });
+
   return (
     <ul className="list">
-      {filterCharacters.map((character) => {
+      {bySpecie.map((character) => {
         return <CharacterCard key={character.id} character={character} />;
       })}
     </ul>
   );
 };
-
 CharacterList.defaultProps = {
   characters: [],
 };
