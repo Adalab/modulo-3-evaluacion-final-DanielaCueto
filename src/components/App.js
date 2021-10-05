@@ -65,9 +65,6 @@ function App() {
         <Route path="/character/:characterId">
           <CharacterDetail character={getCharacter(characterId)} />
         </Route>
-        <Route>
-          <div>Oh! pagina equivocada</div>
-        </Route>
       </Switch>
     </div>
   );
