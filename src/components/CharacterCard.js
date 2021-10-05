@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const CharacterCard = (props) => {
   const character = props.character;
@@ -10,6 +11,10 @@ const CharacterCard = (props) => {
       </Link>
     </li>
   );
+};
+
+CharacterCard.propTypes = {
+  character: PropTypes.object.isRequired,
 };
 
 export default CharacterCard;
