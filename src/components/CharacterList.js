@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import CharacterCard from "./CharacterCard";
 //import CharacterDetail from "./CharacterDetail";
 
@@ -24,6 +25,15 @@ const CharacterList = (props) => {
       })}
     </ul>
   );
+};
+
+CharacterList.defaultProps = {
+  characters: [],
+};
+
+CharacterList.propTypes = {
+  characters: PropTypes.array,
+  searchCharacter: PropTypes.string.isRequired,
 };
 
 export default CharacterList;
