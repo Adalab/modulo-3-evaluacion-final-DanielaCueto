@@ -35,6 +35,10 @@ const CharacterDetail = (props) => {
               <strong>Status: </strong>
               {props.character.status}
             </li>
+            <li>
+              <strong>Gender:</strong>
+              {props.character.gender}
+            </li>
           </ul>
         </div>
       </section>

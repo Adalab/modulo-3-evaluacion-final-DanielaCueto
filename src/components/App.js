@@ -13,6 +13,7 @@ function App() {
   const [searchCharacter, setSearchCharacter] = useState("");
   const [searchSpecie, setSearchSpecie] = useState("All");
   console.log(searchSpecie);
+  const [searchGender, setSearchGender] = useState("All");
   //Función que recibe parametro id y devuelve un character que coincida con ese id.
   const getCharacter = (id) => {
     id = parseInt(id);
@@ -36,6 +37,10 @@ function App() {
 
   const handleSelectedSpecie = (ev) => {
     setSearchSpecie(ev.target.value);
+  };
+
+  const searchByGender = (ev) => {
+    setSearchGender(ev.target.value);
   };
 
   useEffect(() => {
@@ -64,12 +69,18 @@ function App() {
               <option value="Human">Human</option>
               <option value="Alien">Alien</option>
             </select>
+            <select onChange={searchByGender} value={searchGender}>
+              <option value="All">All</option>
+              <option value="Male">Masculino</option>
+              <option value="Female">Femenino</option>
+            </select>
           </form>
 
           <CharacterList
             characters={characters}
             searchCharacter={searchCharacter}
             searchSpecie={searchSpecie}
+            searchGender={searchGender}
           />
         </Route>
         <Route path="/character/:characterId">

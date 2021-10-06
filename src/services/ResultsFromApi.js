@@ -10,6 +10,7 @@ const ResultsFromApi = () => {
         return {
           name: character.name,
           species: character.species,
+          gender: character.gender,
           photo: character.image,
           id: character.id,
           status: character.status,
